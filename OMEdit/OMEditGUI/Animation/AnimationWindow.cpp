@@ -138,6 +138,23 @@ AnimationWindow::AnimationWindow(PlotWindowContainer *pPlotWindowContainer)
   mpRotateCameraLeftButton->setIcon(QIcon(":/Resources/icons/rotateCameraLeft.svg"));
   mpRotateCameraRightButton = new QToolButton(this);
   mpRotateCameraRightButton->setIcon(QIcon(":/Resources/icons/rotateCameraRight.svg"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective0.svg"), QString("Isometric"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective1.svg"),QString("Left 1"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective2.svg"),QString("Left 2"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective3.svg"),QString("Right 1"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective4.svg"),QString("Right 2"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective5.svg"),QString("Front 1"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective6.svg"),QString("Front 2"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective7.svg"),QString("Front 3"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective8.svg"),QString("Back 1"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective9.svg"),QString("Back 2"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective10.svg"),QString("Back 3"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective11.svg"),QString("Top 1"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective12.svg"),QString("Top 2"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective13.svg"),QString("Top 3"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective14.svg"),QString("Bottom 1"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective15.svg"),QString("Bottom 2"));
+  mpPerspectiveDropDownBox->addItem(QIcon(":/Resources/icons/perspective16.svg"),QString("Bottom 3"));
   //assemble the animation toolbar
   mpAnimationToolBar->addAction(mpAnimationChooseFileAction);
   mpAnimationToolBar->addSeparator();
@@ -510,6 +527,16 @@ void AnimationWindow::cameraPositionIsometric()
     mpSceneView->getCameraManipulator()->setByMatrix(mat);
 }
 
+void AnimationWindow::cameraPositionRight1()
+{
+    double d = computeDistanceToOrigin();
+    osg::Matrixd mat = osg::Matrixd(0,-1, 0, 0,
+                                    1, 0, 0, 0,
+                                    0, 0, 1, 0,
+                                    0, 0, d, 1);
+    mpSceneView->getCameraManipulator()->setByMatrix(mat);
+}
+
 /*!
  * \brief AnimationWindow::cameraPositionSide
  * sets the camera position to Side
@@ -524,6 +551,46 @@ void AnimationWindow::cameraPositionSide()
   mpSceneView->getCameraManipulator()->setByMatrix(mat);
 }
 
+void AnimationWindow::cameraPositionFront1()
+{
+    double d = computeDistanceToOrigin();
+    osg::Matrixd mat = osg::Matrixd(0, 0, 1, 0,
+                                    1, 0, 0, 0,
+                                    0, 1, 0, 0,
+                                    0, d, 0, 1);
+    mpSceneView->getCameraManipulator()->setByMatrix(mat);
+}
+
+void AnimationWindow::cameraPositionFront2()
+{
+    double d = computeDistanceToOrigin();
+    osg::Matrixd mat = osg::Matrixd(-1, 0, 0, 0,
+                                    0, 0, 1, 0,
+                                    0, 1, 0, 0,
+                                    0, d, 0, 1);
+    mpSceneView->getCameraManipulator()->setByMatrix(mat);
+}
+
+void AnimationWindow::cameraPositionFront3()
+{
+    double d = computeDistanceToOrigin();
+    osg::Matrixd mat = osg::Matrixd(1, 0, 0, 0,
+                                    0, 0,-1, 0,
+                                    0, 1, 0, 0,
+                                    0, d, 0, 1);
+    mpSceneView->getCameraManipulator()->setByMatrix(mat);
+}
+
+void AnimationWindow::cameraPositionBack1()
+{
+    double d = computeDistanceToOrigin();
+    osg::Matrixd mat = osg::Matrixd(0, 0,-1, 0,
+                                    1, 0, 0, 0,
+                                    0,-1, 0, 0,
+                                    0,-d, 0, 1);
+    mpSceneView->getCameraManipulator()->setByMatrix(mat);
+}
+
 /*!
  * \brief AnimationWindow::cameraPositionFront
  * sets the camera position to Front
@@ -535,6 +602,26 @@ void AnimationWindow::cameraPositionFront()
                                     1, 0, 0, 0,
                                     0, 1, 0, 0,
                                     0, d, 0, 1);
+    mpSceneView->getCameraManipulator()->setByMatrix(mat);
+}
+
+void AnimationWindow::cameraPositionBack3()
+{
+    double d = computeDistanceToOrigin();
+    osg::Matrixd mat = osg::Matrixd(-1, 0, 0, 0,
+                                     0, 0,-1, 0,
+                                     0,-1, 0, 0,
+                                     0,-d, 0, 1);
+    mpSceneView->getCameraManipulator()->setByMatrix(mat);
+}
+
+void AnimationWindow::cameraPositionTop1()
+{
+    double d = computeDistanceToOrigin();
+    osg::Matrixd mat = osg::Matrixd( 0, 0,-1, 0,
+                                     0, 1, 0, 0,
+                                     1, 0, 0, 0,
+                                     d, 0, 0, 1);
     mpSceneView->getCameraManipulator()->setByMatrix(mat);
 }
 

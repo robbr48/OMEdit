@@ -55,6 +55,12 @@
 #include <QSlider>
 #include <QLineEdit>
 #include <QComboBox>
+
+#include <QMainWindow>
+#include <QToolBar>
+#include <QSlider>
+#include <QLineEdit>
+#include <QComboBox>
 #include <QTimer>
 
 class PlotWindowContainer;
@@ -92,6 +98,25 @@ public slots:
   void cameraPositionTop();
   void rotateCameraLeft();
   void rotateCameraRight();
+
+  double computeDistanceToOrigin();
+  void cameraPositionIsometric();
+  void cameraPositionLeft1();
+  void cameraPositionLeft2();
+  void cameraPositionRight1();
+  void cameraPositionRight2();
+  void cameraPositionFront1();
+  void cameraPositionFront2();
+  void cameraPositionFront3();
+  void cameraPositionBack1();
+  void cameraPositionBack2();
+  void cameraPositionBack3();
+  void cameraPositionTop1();
+  void cameraPositionTop2();
+  void cameraPositionTop3();
+  void cameraPositionBottom1();
+  void cameraPositionBottom2();
+  void cameraPositionBottom3();
 
   double computeDistanceToOrigin();
   void setPerspective(int value);
