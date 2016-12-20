@@ -527,6 +527,10 @@ void AnimationWindow::cameraPositionIsometric()
     mpSceneView->getCameraManipulator()->setByMatrix(mat);
 }
 
+/*!
+ * \brief AnimationWindow::cameraPositionRight1
+ * sets the camera position to Right 1
+ */
 void AnimationWindow::cameraPositionRight1()
 {
     double d = computeDistanceToOrigin();
@@ -551,6 +555,10 @@ void AnimationWindow::cameraPositionSide()
   mpSceneView->getCameraManipulator()->setByMatrix(mat);
 }
 
+/*!
+ * \brief AnimationWindow::cameraPositionFront1
+ * sets the camera position to Front 1
+ */
 void AnimationWindow::cameraPositionFront1()
 {
     double d = computeDistanceToOrigin();
@@ -561,6 +569,10 @@ void AnimationWindow::cameraPositionFront1()
     mpSceneView->getCameraManipulator()->setByMatrix(mat);
 }
 
+/*!
+ * \brief AnimationWindow::cameraPositionFront2
+ * sets the camera position to Front 2
+ */
 void AnimationWindow::cameraPositionFront2()
 {
     double d = computeDistanceToOrigin();
@@ -571,6 +583,10 @@ void AnimationWindow::cameraPositionFront2()
     mpSceneView->getCameraManipulator()->setByMatrix(mat);
 }
 
+/*!
+ * \brief AnimationWindow::cameraPositionFront3
+ * sets the camera position to Front 3
+ */
 void AnimationWindow::cameraPositionFront3()
 {
     double d = computeDistanceToOrigin();
@@ -581,6 +597,10 @@ void AnimationWindow::cameraPositionFront3()
     mpSceneView->getCameraManipulator()->setByMatrix(mat);
 }
 
+/*!
+ * \brief AnimationWindow::cameraPositionBack1
+ * sets the camera position to Back 1
+ */
 void AnimationWindow::cameraPositionBack1()
 {
     double d = computeDistanceToOrigin();
@@ -605,6 +625,10 @@ void AnimationWindow::cameraPositionFront()
     mpSceneView->getCameraManipulator()->setByMatrix(mat);
 }
 
+/*!
+ * \brief AnimationWindow::cameraPositionBack3
+ * sets the camera position to Back 3
+ */
 void AnimationWindow::cameraPositionBack3()
 {
     double d = computeDistanceToOrigin();
@@ -615,6 +639,10 @@ void AnimationWindow::cameraPositionBack3()
     mpSceneView->getCameraManipulator()->setByMatrix(mat);
 }
 
+/*!
+ * \brief AnimationWindow::cameraPositionTop1
+ * sets the camera position to Top 1
+ */
 void AnimationWindow::cameraPositionTop1()
 {
     double d = computeDistanceToOrigin();
