@@ -707,6 +707,28 @@ void AnimationWindow::rotateCameraRight()
     mpSceneView->getCameraManipulator()->setByMatrix(mat*rotMatrix);
 }
 
+    mpSceneView->getCameraManipulator()->setByMatrix(mat*rotMatrix);
+}
+
+void AnimationWindow::rotateCameraRight()
+{
+    osg::ref_ptr<osgGA::CameraManipulator> manipulator = mpSceneView->getCameraManipulator();
+    osg::Matrixd mat = manipulator->getMatrix();
+    osg::Camera *pCamera = mpSceneView->getCamera();
+
+    osg::Vec3d eye, center, up;
+    pCamera->getViewMatrixAsLookAt(eye, center, up);
+    osg::Vec3d rotationAxis = center-eye;
+
+    osg::Matrixd rotMatrix;
+    rotMatrix.makeRotate(-3.1415/2.0, rotationAxis);
+
+    mpSceneView->getCameraManipulator()->setByMatrix(mat*rotMatrix);
+}
+
+
+
+
 /*!
  * \brief AnimationWindow::computeDistanceToOrigin
  * computes distance to origin using pythagoras theorem
@@ -750,12 +772,36 @@ void AnimationWindow::setPerspective(int value)
     case 0:
       cameraPositionIsometric();
       break;
+//    case 1:
+//      cameraPositionLeft1();
+//      break;
+//    case 2:
+//      cameraPositionLeft2();
+//      break;
+//    case 3:
+//      cameraPositionRight1();
+//      break;
     case 1:
       cameraPositionSide();
       break;
     case 2:
       cameraPositionTop();
       break;
+//    case 6:
+//      cameraPositionFront2();
+//      break;
+//    case 7:
+//      cameraPositionFront3();
+//      break;
+//    case 8:
+//      cameraPositionBack1();
+//      break;
+//    case 9:
+//      cameraPositionBack2();
+//      break;
+//    case 10:
+//      cameraPositionBack3();
+//      break;
     case 3:
       cameraPositionFront();
       break;
