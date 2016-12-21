@@ -556,10 +556,10 @@ void AnimationWindow::cameraPositionSide()
 }
 
 /*!
- * \brief AnimationWindow::cameraPositionFront1
- * sets the camera position to Front 1
+ * \brief AnimationWindow::cameraPositionFront
+ * sets the camera position to Front
  */
-void AnimationWindow::cameraPositionFront1()
+void AnimationWindow::cameraPositionFront()
 {
     double d = computeDistanceToOrigin();
     osg::Matrixd mat = osg::Matrixd(0, 0, 1, 0,
@@ -570,10 +570,10 @@ void AnimationWindow::cameraPositionFront1()
 }
 
 /*!
- * \brief AnimationWindow::cameraPositionFront2
- * sets the camera position to Front 2
+ * \brief AnimationWindow::cameraPositionTop
+ * sets the camera position to Top
  */
-void AnimationWindow::cameraPositionFront2()
+void AnimationWindow::cameraPositionTop()
 {
     double d = computeDistanceToOrigin();
     osg::Matrixd mat = osg::Matrixd(-1, 0, 0, 0,
@@ -726,9 +726,6 @@ void AnimationWindow::rotateCameraRight()
     mpSceneView->getCameraManipulator()->setByMatrix(mat*rotMatrix);
 }
 
-
-
-
 /*!
  * \brief AnimationWindow::computeDistanceToOrigin
  * computes distance to origin using pythagoras theorem
@@ -772,36 +769,12 @@ void AnimationWindow::setPerspective(int value)
     case 0:
       cameraPositionIsometric();
       break;
-//    case 1:
-//      cameraPositionLeft1();
-//      break;
-//    case 2:
-//      cameraPositionLeft2();
-//      break;
-//    case 3:
-//      cameraPositionRight1();
-//      break;
     case 1:
       cameraPositionSide();
       break;
     case 2:
       cameraPositionTop();
       break;
-//    case 6:
-//      cameraPositionFront2();
-//      break;
-//    case 7:
-//      cameraPositionFront3();
-//      break;
-//    case 8:
-//      cameraPositionBack1();
-//      break;
-//    case 9:
-//      cameraPositionBack2();
-//      break;
-//    case 10:
-//      cameraPositionBack3();
-//      break;
     case 3:
       cameraPositionFront();
       break;
